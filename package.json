@@ -1,0 +1,24 @@
+{
+  "name": "ts-express-boilerplate",
+  "version": "1.0.0",
+  "description": "A boilerplate project for building Rest Api.",
+  "main": "index.ts",
+  "repository": "https://github.com/arbezerra/ts-express-boilerplate",
+  "author": "André Landim",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.3.1",
+    "nodemon": "^2.0.22",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.3"
+  }
+}
