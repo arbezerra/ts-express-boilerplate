@@ -2,6 +2,7 @@ import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import helmet from "helmet";
+import router from "./routes";
 
 dotenv.config();
 
@@ -25,5 +26,7 @@ app.use("/health", async (_req: Request, res: Response) => {
     res.status(503).send(healthcheck);
   }
 });
+
+app.use("/", router);
 
 export default app;
