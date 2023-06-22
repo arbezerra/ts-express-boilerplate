@@ -6,6 +6,7 @@ import helmet from "helmet";
 dotenv.config();
 
 const app: Express = express();
+app.disable('x-powered-by');
 
 app.use(cors());
 app.use(helmet());
