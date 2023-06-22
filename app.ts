@@ -1,9 +1,12 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 
 dotenv.config();
 
 const app: Express = express();
+
+app.use(cors());
 
 app.use("/health", async (_req: Request, res: Response) => {
   const healthcheck = {
