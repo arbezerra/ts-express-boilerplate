@@ -1,12 +1,14 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import helmet from "helmet";
 
 dotenv.config();
 
 const app: Express = express();
 
 app.use(cors());
+app.use(helmet());
 
 app.use("/health", async (_req: Request, res: Response) => {
   const healthcheck = {
