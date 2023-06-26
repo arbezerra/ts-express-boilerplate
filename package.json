@@ -9,7 +9,7 @@
   "private": true,
   "scripts": {
     "dev": "nodemon",
-    "test": "NODE_ENV=test jest --detectOpenHandles"
+    "test": "NODE_ENV=test jest"
   },
   "dependencies": {
     "cors": "^2.8.5",
