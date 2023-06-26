@@ -16,9 +16,9 @@ const AuthController = {
         expiresIn: "3h",
         issuer: "cct.ufcg.edu.br",
       });
-      return res.status(200).json(token);
+      return res.status(200).json({token});
     }
-    return res.status(422);
+    return res.status(422).json({message: "Invalid"});
   },
 };
 

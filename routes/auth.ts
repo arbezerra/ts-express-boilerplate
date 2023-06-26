@@ -1,9 +1,14 @@
-import {Router} from "express";
+import passport from "passport";
+import { Router } from "express";
 import AuthController from "../controllers/auth";
 
 const router = Router();
 
-router.get("/", AuthController.index);
+router.get(
+  "/",
+  passport.authenticate("jwt", { session: false }),
+  AuthController.index
+);
 router.post("/", AuthController.login);
 
 export default router;
