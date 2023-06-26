@@ -11,5 +11,6 @@ router.get(
   AuthController.index
 );
 router.post("/", AuthController.login);
+router.put("/", AuthController.register);
 
 export default router;
