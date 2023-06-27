@@ -1,16 +1,20 @@
-import passport from "passport";
 import { Router } from "express";
 import AuthController from "../controllers/auth";
 import isLoggedIn from "../middlewares/auth";
+import validate, { ValidateMethod } from "../middlewares/validate";
 
 const router = Router();
 
-router.get(
+router.get("/", isLoggedIn(), AuthController.index);
+router.post(
   "/",
-  isLoggedIn(),
-  AuthController.index
+  validate(AuthController.validate(ValidateMethod.LOGIN)),
+  AuthController.login
 );
-router.post("/", AuthController.login);
-router.put("/", AuthController.register);
+router.put(
+  "/",
+  validate(AuthController.validate(ValidateMethod.CREATE)),
+  AuthController.register
+);
 
 export default router;

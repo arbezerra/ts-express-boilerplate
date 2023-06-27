@@ -5,7 +5,7 @@ A boilerplate project for building REST API.
 - [x] Server: Express.js
 - [x] Query Builder: Knex
 - [x] Auth: passport-jwt
-- [ ] Validator: Joi
+- [x] Validator: Zod
 
 ## Install
 

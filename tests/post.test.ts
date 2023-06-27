@@ -55,13 +55,16 @@ describe("Post", () => {
 
   test("PUT /post 200", async () => {
     const post = await pool<Post>("posts").first();
+    const user = await pool<User>("users").first();
     const category = await pool<Category>("categories").first();
     return request(app)
       .put(`/post/${post?.id}`)
       .send({
         title: "New Post 2",
+        slug: "new-post2",
         content: "New Post 2!",
         summary: "New Post 2...",
+        author_id: user!.id,
         category_id: category!.id,
       })
       .set({ Authorization: `Bearer ${token}` })
