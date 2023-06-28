@@ -1,5 +1,7 @@
 # Express.js Typescript Boilerplate
 
+![CI](https://github.com/arbezerra/ts-express-boilerplate/actions/workflows/jest.yml/badge.svg)
+
 A boilerplate project for building REST API.
 
 - [x] Server: Express.js
