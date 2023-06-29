@@ -25,14 +25,14 @@ describe("Post", () => {
   });
 
   test("GET /post/:id 200", async () => {
-    const result = await request(app).get("/post");
-    return request(app).get(`/post/${result.body[0].id}`).expect(200);
+    const post = await pool<Post>("posts").first();
+    return request(app).get(`/post/${post!.id}`).expect(200);
   });
 
   test("GET /post/slug/:slug 200", async () => {
-    const result = await request(app).get("/post");
+    const post = await pool<Post>("posts").first();
     return request(app)
-      .get(`/post/slug/${result.body[0].slug}`)
+      .get(`/post/slug/${post!.slug}`)
       .expect(200);
   });
 
@@ -72,9 +72,9 @@ describe("Post", () => {
   });
 
   test("DELETE /post 200", async () => {
-    const result = await request(app).get("/post");
+    const post = await pool<Post>("posts").first();
     return request(app)
-      .delete(`/post/${result.body[0].id}`)
+      .delete(`/post/${post!.id}`)
       .set({ Authorization: `Bearer ${token}` })
       .expect(200);
   });

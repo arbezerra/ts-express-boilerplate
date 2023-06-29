@@ -7,6 +7,7 @@ export enum ValidateMethod {
   ID,
   SLUG,
   LOGIN,
+  PAGINATE,
 }
 
 const validate = (schema: AnyZodObject) => {

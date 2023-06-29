@@ -7,6 +7,7 @@ const router = Router();
 
 router.get(
   "/",
+  validate(PostController.validate(ValidateMethod.PAGINATE)),
   PostController.index
 );
 router.get(
