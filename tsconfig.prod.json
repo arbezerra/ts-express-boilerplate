@@ -4,4 +4,7 @@
       "sourceMap": false,
       "removeComments": true
     },
+    "exclude": [
+      "tests",
+    ]
   }

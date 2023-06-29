@@ -1,11 +1,9 @@
 import { Request, Response } from "express";
 import pool from "../lib/db";
-import { verify } from "../lib/hash";
-import User from "../models/user";
-import jwt from "jsonwebtoken";
 import Post from "../models/post";
 import { ValidateMethod } from "../middlewares/validate";
 import { z } from "zod";
+import { v4 as uuid4 } from "uuid";
 
 const PostController = {
   index: async (req: Request, res: Response) => {
@@ -23,7 +21,8 @@ const PostController = {
     return res.status(200).json(item);
   },
   store: async (req: Request, res: Response) => {
-    const item = await pool<Post>("posts").insert(req.body);
+    req.body.id = uuid4();
+    const item = await pool<Post>("posts").insert(req.body, "id");
     return res.status(200).json(item);
   },
   update: async (req: Request, res: Response) => {

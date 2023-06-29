@@ -5,6 +5,7 @@ import User from "../models/user";
 import jwt from "jsonwebtoken";
 import { ValidateMethod } from "../middlewares/validate";
 import { z } from "zod";
+import { v4 as uuid4 } from "uuid";
 
 const AuthController = {
   index: async (req: Request, res: Response) => {
@@ -32,6 +33,7 @@ const AuthController = {
       {
         ...req.body,
         password: await hash(password),
+        id: uuid4(),
       },
       "id"
     );
