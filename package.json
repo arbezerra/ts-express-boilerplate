@@ -9,6 +9,7 @@
   "private": true,
   "scripts": {
     "dev": "nodemon",
+    "build": "tsc --build tsconfig.prod.json",
     "test": "NODE_ENV=test jest"
   },
   "dependencies": {
