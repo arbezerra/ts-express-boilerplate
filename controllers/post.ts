@@ -94,8 +94,8 @@ const PostController = {
       case ValidateMethod.PAGINATE:
         return z.object({
           query: z.object({
-            page: z.string().optional().transform((x) => parseInt(x || "0")).pipe(z.number().nonnegative()),
-            size: z.string().optional().transform((x) => parseInt(x || "5")).pipe(z.number().positive()),
+            page: z.coerce.number().nonnegative().optional(),
+            size: z.coerce.number().positive().optional(),
           }),
         });
       default:
