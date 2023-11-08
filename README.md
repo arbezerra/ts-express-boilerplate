@@ -22,3 +22,21 @@ Copy the env file and edit the variables accordingly
 ```bash
 cp .env.example .env
 ```
+
+Apply the migrations
+
+```bash
+yarn knex migrate:latest
+```
+
+Seed the database
+
+```bash
+yarn knex seed:run
+```
+
+## Running
+
+```bash
+yarn dev
+```
